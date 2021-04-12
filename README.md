@@ -1,5 +1,7 @@
 # Image-Colorization
-This is a repo for SoC2021, Image Colorization project. This repo would contain the code and I will be using this README.md as a way to catalogue my journey throughout this project.
+This is a repo for SoC2021, Image Colorization project. This repo would contain the code and I will be using this README.md as a way to catalogue my journey throughout this project. 
+### TODO
+- Add LaTeX compatibility for this .md file
 
 ## Linear Regression
 The main aim is to estimate a linear equation representing the given set of data. There are two approaches to this.   
