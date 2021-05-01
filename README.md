@@ -50,6 +50,8 @@ For example, a neural network responsible for detecting the number in a MNIST da
 
 Given a function `f(x1, x2)`, the minima of the function can be computed empirically by taking its partial derivative and “walking” such that the function value is reduced.
 
+![](https://github.com/AkashCherukuri/Image-Colorization/blob/main/imgs/grad_desc.png?raw=true)
+
 `\eta` is called as the *Learning Rate*, and is directly proportional to how “large” the “steps” are.
 
 In our case, we would be applying gradient descent and changing the values of all the biases (`b_i`) and weights (`w_i`) to minimize the cost function. A drawback of this method is that calculating the cost function requires the summation of the mean squared error over all values of training data, which would be ranging in the order of `10^5`. This causes the training to be very slow.
