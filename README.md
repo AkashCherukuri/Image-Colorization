@@ -34,6 +34,7 @@ A useful post on GeeksForGeeks [here](https://www.geeksforgeeks.org/gradient-des
 - `sigmoid neurons`: we usually change the values slightly in perceptrons to slowly approach the required classification function. However, because perceptrons are binary in nature, small changes can cause drastic (and unintended) changes to the output. Sigmoid neurons try to minimize this issue.
 
 The standard sigmoid function is given as follows:
+
 σ(w·x+b) = 1/(1+exp(-w·x-b))
 
 That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives).
@@ -51,8 +52,11 @@ For example, a neural network responsible for detecting the number in a MNIST da
 Given a function `f(x1, x2)`, the minima of the function can be computed empirically by taking its partial derivative and “walking” such that the function value is reduced.
 
 Δf = (∂f/∂x)Δx + (∂f/∂y)Δy
+
    = (∇f)·(ΔX)
+
 Let ΔX = -η∇f
+
 Δf = -η||∇f||² , which is always negative. 
 
 η is called as the *Learning Rate*, and is directly proportional to how “large” the “steps” are.
