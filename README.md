@@ -34,7 +34,7 @@ A useful post on GeeksForGeeks [here](https://www.geeksforgeeks.org/gradient-des
 - `sigmoid neurons`: we usually change the values slightly in perceptrons to slowly approach the required classification function. However, because perceptrons are binary in nature, small changes can cause drastic (and unintended) changes to the output. Sigmoid neurons try to minimize this issue.
 
 The standard sigmoid function is given as follows:
-$$ \sigma(w\cdot x+b) = \frac{1}{1+exp(-w\cdot x-b)} $$
+σ(w·x+b) = 1/(1+exp(-w·x-b))
 
 That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives).
 
@@ -50,9 +50,12 @@ For example, a neural network responsible for detecting the number in a MNIST da
 
 Given a function `f(x1, x2)`, the minima of the function can be computed empirically by taking its partial derivative and “walking” such that the function value is reduced.
 
-![](https://github.com/AkashCherukuri/Image-Colorization/blob/main/imgs/grad_desc.png?raw=true)
+Δf = (∂f/∂x)Δx + (∂f/∂y)Δy
+   = (∇f)·(ΔX)
+Let ΔX = -η∇f
+Δf = -η||∇f||² , which is always negative. 
 
-`\eta` is called as the *Learning Rate*, and is directly proportional to how “large” the “steps” are.
+η is called as the *Learning Rate*, and is directly proportional to how “large” the “steps” are.
 
 In our case, we would be applying gradient descent and changing the values of all the biases (`b_i`) and weights (`w_i`) to minimize the cost function. A drawback of this method is that calculating the cost function requires the summation of the mean squared error over all values of training data, which would be ranging in the order of `10^5`. This causes the training to be very slow.
 
