@@ -24,6 +24,12 @@ A useful post on GeeksForGeeks [here](https://www.geeksforgeeks.org/gradient-des
 - `perceptrons`: older way of representing neural networks. Can give an output of either 0 or 1, corresponding to if the value of the sum of the dot product of `w` and `x` and `bias` is lesser than or greater than 0.
 - `sigmoid neurons`: we usually change the values slightly in perceptrons to slowly approach the required classification function. However, because perceptrons are binary in nature, small changes can cause drastic (and unintended) changes to the output. Sigmoid neurons try to minimize this issue.
 
+The standard sigmoid function is given as follows:
+- <img src="https://latex.codecogs.com/gif.latex?\sigma(w\cdot x+b)=\frac{1}{1+exp(-w\cdot x-b)}"/>
+That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives).
+
+
+
 ## Resources used
 A Machine Learning course [here](https://www.coursera.org/learn/machine-learning)  
 Notes on Machine Learning [here](http://cs229.stanford.edu/summer2019/cs229-notes1.pdf)
