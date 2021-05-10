@@ -37,7 +37,7 @@ The standard sigmoid function is given as follows:
 
 σ(w·x+b) = 1/(1+exp(-w·x-b))
 
-That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives).
+That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives). (w·x+b) is called as the "Weighted input" for that particular neuron, and is represented by `z`.
 
 
 
@@ -69,7 +69,32 @@ Instead of taking all the `n` values in the training data set, we create a subse
 
 When the mini set is exhausted, an **epoch** of training is said to be completed after which the process is repeated again. This is to mark the progress of training.
 
+*** Vectorizing sigmoid function ***
 
+## Back-Propagaion
+
+Assumption1: The cost function for a set of inputs is equal to the average of the cost function for each individual input. This assumption holds for the Least-Mean-Squared cost function.
+
+Assumption2: The cost function should be a function of the outputs of the neural network.
+
+Given the cost function C, and the weighted input z for a neuron, we define error for this neuron δ as follows,
+
+δ = ∂C/∂z
+
+That is, if δ is a large value, then a change in z can bring about a change in C. If it is zero, then it means that C is optimal wrt z.
+
+There are four fundamental equations to back propogation, and they have been given below. δL is the δ vector for the final layer.
+- δL = (∂C/∂a) ⊙ σ'(z)
+- δⁿ = (wⁿ⁺¹)ᵀ(δⁿ⁺¹) ⊙ σ'(z)
+- (∂C/∂b) = δ  ⇒  Delta of a neuron is equal to the derivative of the cost function wrt to its bias
+- (∂C/∂wⁿⱼₖ) = aₖⁿ⁻¹ * δⱼⁿ   (Do remember that in wⱼₖ, neuron `k` is in the n-1'th layer and neuron `j` is in the n'th layer)
+
+This is how a single iteration of training a neural network is done:
+1. Input a set of training examples.
+2. Feedforward the values to get the output.
+3. Calculate the error at the outer-most layer.
+4. Backpropogate the error till the input layer.
+5. Perform gradient descent, as partial derivatives wrt all biases and weights is known.
 
 ## Resources used
 
