@@ -71,7 +71,7 @@ When the mini set is exhausted, an **epoch** of training is said to be completed
 
 *** Vectorizing sigmoid function ***
 
-## Back-Propagaion
+## Back-Propagation
 
 Assumption1: The cost function for a set of inputs is equal to the average of the cost function for each individual input. This assumption holds for the Least-Mean-Squared cost function.
 
@@ -95,6 +95,50 @@ This is how a single iteration of training a neural network is done:
 3. Calculate the error at the outer-most layer.
 4. Backpropogate the error till the input layer.
 5. Perform gradient descent, as partial derivatives wrt all biases and weights is known.
+
+
+## Learning Slowdown, and the cross entropy cost function
+
+We've been using the quadratic cost function so far. It does have a few issues, notably its derivative is very small when the value of σ(z) is close to 0 or 1. In gradient descent, the change in biases and weights is directly proportional to the derivative of the cost function, meaning it is possible for this function to learn very slowly when it is giving wrong results. We turn to the cross entropy cost function as a solution.
+
+C = (-1/n)×Σₓ[yln(σ(z)) + (1-y)ln(1-σ(z))] 
+
+It can be checked mathematically that the derivative of this cost function wrt `b` and `x` is independant of σ'(z), meaning no learning slowdown occurs. Moreover, the derivative is proportional to error meaning that learning occurs faster when the model is more wrong, as we would like it.
+
+The cross entropy cost function can be defined for an entire layer as well;-
+
+C = (-1/n)×ΣₓΣⱼ[yln(σ(zⱼᴸ)) + (1-y)ln(1-σ(zⱼᴸ))]    where zⱼᴸ is the j'th neuron in the final layer 'L' 
+
+
+Do note that a sigmoid function coupled with the cross entropy cost function is quite similar in terms of learning slowdown to the softmax function coupled with the log-likelihood cost function. (the derivatives wrt `b` and `x` have the same behaviour)
+
+
+## Avoiding overfitting
+
+1. Increase the size of training data
+
+2. Regularization 
+	- In L2 regularization, a new term is added to the cost function as shown below. The second summation is over all the weights in the network.
+
+	C = (-1/n)×ΣₓΣⱼ[yln(σ(zⱼᴸ)) + (1-y)ln(1-σ(zⱼᴸ))] + (λ/2n)Σ[w²]  
+
+
+	- Similarly, L1 regularization is given below:
+
+	C = (-1/n)×ΣₓΣⱼ[yln(σ(zⱼᴸ)) + (1-y)ln(1-σ(zⱼᴸ))] + (λ/n)Σ|w|
+
+
+	- Dropout regularization is a technique wherina random half of the hidden neurons are ommited from the network for a single training iteration. The idea here is that "different networks can have different overfitting heuristics, and training them seperately can cause the averaging out of their errors."
+
+3. Artificially inflate the size of training data
+	In the case of MNIST, just rotate/blur the images by a small degree to get new training data!
+
+## Initializing the weights and biases
+
+We have so far been initializing all weights and biases from a gaussian distribution of mean 0 and standard deviation 1. This isn't optimal, as the standard deviation of `z = (Σᵢwᵢxᵢ) + b` would be very large, proportional to the square of the umber of inputs the neuron has. This can cause the output of the sigmoid function to be nearly 0 or 1, causing stagnation as discussed earlier.
+
+To solve this problem, we initialize `b` as earlier but `w` is initialized with mean 0 and standard deviation of `1/sqrt(n)` where n is the number of inputs.
+
 
 ## Resources used
 
