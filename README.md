@@ -45,7 +45,7 @@ That is, is is a smoothened out version of the step function. We can also see th
 
 These have **sigmoid neurons** as layers in them. The neurons taking input are called *input neurons* and comprise the *input layer*. Similarly, we have the output neurons and the output layer. Neurons (and layers) which are neither input nor output are called as **Hidden Layers**. We will be using a **feed-forward** neural network, meaning that the output of a layer always leads to an input of another layer in a linear fashion without loops. If layers have loops, they are called **Recurrent Neural networks** or RNNs.
 
-For example, a neural network responsible for detecting the number in a MNIST dataset can have just three layers; Input (28*28 neurons), hidden (variable `n`) and output (10 neurons). The network is trained using a training set, and the mean squared loss function is minimized by using gradient descent.
+For example, a neural network responsible for detecting the number in a MNIST dataset can have just three layers; Input (28×28 neurons), hidden (variable `n`) and output (10 neurons). The network is trained using a training set, and the mean squared loss function is minimized by using gradient descent.
 
 ### Gradient Descent
 
@@ -118,7 +118,7 @@ Do note that a sigmoid function coupled with the cross entropy cost function is 
 1. Increase the size of training data
 
 2. Regularization 
-	- In L2 regularization, a new term is added to the cost function as shown below. The second summation is over all the weights in the network.
+	- In L2 regularization, a new term is added to the cost function as shown below. The second summation is over all the weights in the network. λ is called the *regularization parameter*.
 
 	C = (-1/n)×ΣₓΣⱼ[yln(σ(zⱼᴸ)) + (1-y)ln(1-σ(zⱼᴸ))] + (λ/2n)Σ[w²]  
 
@@ -139,6 +139,12 @@ We have so far been initializing all weights and biases from a gaussian distribu
 
 To solve this problem, we initialize `b` as earlier but `w` is initialized with mean 0 and standard deviation of `1/sqrt(n)` where n is the number of inputs.
 
+
+# Universality of Neural Networks
+
+This is a very important mathematical analysis (which I shall not write here for the sake of brevity) that neural networks (even simple ones with a single hidden layer) can compute any function with relative precision given enough time to train.
+
+The approximation is better when there are more neurons used in the hidden layer. Also, we get an approximated continuous function as a result of estimating a discontinuous function by this method.
 
 ## Resources used
 
