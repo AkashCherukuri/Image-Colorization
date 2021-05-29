@@ -12,7 +12,9 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 	- [Cross Entropy Cost Function](#learning-slowdown-and-the-cross-entropy-cost-function)
 3. [Convolutional Neural Networks](#cnns)
 	- [Basic Terminologies](#basic-terminologies)
+	- [Types of Convolution](#types-of-convolution)
 
+	
 -1. [Resources Used](#resources-used)
 
 ---
