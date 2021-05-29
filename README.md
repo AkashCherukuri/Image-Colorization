@@ -8,7 +8,7 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 1. [Linear and Logistic Regression](#linear-regression)
 2. [Deep Learning](#deep-learning)
 	- [Gradient Descent and Stochastic Gradient Descent](#gradient-descent)
-	- [Back Propogation](#back-propogation)
+	- [Back Propogation](#back-propagation)
 	- [Cross Entropy Cost Function](#learning-slowdown-and-the-cross-entropy-cost-function)
 3. [Convolutional Neural Networks](#cnns)
 	- [Basic Terminologies](#basic-terminologies)
@@ -158,7 +158,7 @@ The approximation is better when there are more neurons used in the hidden layer
 ---
 
 
-#CNNs
+# CNNs
 
 Stand for Convolutional Neural Networks. Are best suited for image processing, and the number of connections in between the hidden layers is decreased by a significant factor. A few basic terminologies are discussed below.
 
