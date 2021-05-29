@@ -168,40 +168,45 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 ## Basic Terminologies
 1. Convolution
 
-This step involves having a *kernel* of fixed size move across the image (with a stride that need not be 1) and produce a *feature map* which makes it easier for the network to train. Many kernels can be operated on a single image, giving many feature maps.
+	This step involves having a *kernel* of fixed size move across the image (with a stride that need not be 1) and produce a *feature map* which makes it easier for the network to train. Many kernels can be operated on a single image, giving many feature maps.
 
-Do note that the kernel must always be odd-sized.
+	Do note that the kernel must always be odd-sized.
 
 2. Pooling
 
-The size of a map is reduced by first dividing it into smaller parts, each with size m×m. Each of these smaller squares is replaced by a single pixel, usually by taking the `max` or the `average` of all the values in that cell.
+	The size of a map is reduced by first dividing it into smaller parts, each with size m×m. Each of these smaller squares is replaced by a single pixel, usually by taking the `max` or the `average` of all the values in that cell.
 
 3. ReLU
 
-This introduces non-linearity in the system so as to make the network more flexible in representing a large variety of functions.
+	This introduces non-linearity in the system so as to make the network more flexible in representing a large variety of functions.
 
 4. Fully Connected Layers
 
-Once all the "pre-processing" of the image via convolution and pooling is done, the resultant values are passed into a fully connected layer for the neurons in that layer to train. The number of layers is variable, but the output layer must have the sam enumber of neurons as the number of possible classifications. (due to obvious reasons)   
+	Once all the "pre-processing" of the image via convolution and pooling is done, the resultant values are passed into a fully connected layer for the neurons in that layer to train. The number of layers is variable, but the output layer must have the sam enumber of neurons as the number of possible classifications. (due to obvious reasons)   
 
 
 ### Types of Convolution
 1. Dilated Convolution
 
-Converting a 10x10 map to a smaller map of size 6x6 using a kernel of size 3 would take two consecutive convolutions. Instead of doing this twice, we can "inflate" the size of our original kernel to 5 by adding two additional rows and columns of 0s in between. This would require the convolution to be done only once, saving computational effort.
+	Converting a 10x10 map to a smaller map of size 6x6 using a kernel of size 3 would take two consecutive convolutions. Instead of doing this twice, we can "inflate" the size of our original kernel to 5 by adding two additional rows and columns of 0s in between. This would require the convolution to be done only once, saving computational effort.
 
-The number of rows/columns of 0s added is called as *Dilation Rate*.
+	The number of rows/columns of 0s added is called as *Dilation Rate*.
 
-Example:
-					1 0 1 0 1
-1 1 1 			0 0 0 0 0 
-1 1 1 	⇒ 		1 0 1 0 1
-1 1 1 			0 0 0 0 0 
-					1 0 1 0 1
+	Example:
+
+						1 0 1 0 1
+
+	1 1 1 			0 0 0 0 0 
+
+	1 1 1 	⇒ 		1 0 1 0 1
+
+	1 1 1 			0 0 0 0 0 
+
+						1 0 1 0 1
 
 2. Transposed Convolution
 
-This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
+	This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
 
 
 ## Resources used
