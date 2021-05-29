@@ -2,9 +2,18 @@
 
 This is a repo for SoC2021, Image Colorization project. This repo would contain the code and I will be using this README.md as a way to catalogue my journey throughout this project. 
 
-### TODO
 
-- Add LaTeX compatibility for this .md file
+## Table of Contents
+
+1. [Linear and Logistic Regression](#linear-regression)
+2. [Deep Learning](#deep-learning)
+	- [Gradient Descent and Stochastic Gradient Descent](#gradient-descent)
+	- [Back Propogation](#back-propogation)
+	- [Cross Entropy Cost Function](#learning-slowdown-and-the-cross-entropy-cost-function)
+3. [Convolutional Neural Networks](#cnns)
+	- [Basic Terminologies](#basic-terminologies)
+
+-1. [Resources Used](#resources-used)
 
 ## Linear Regression
 
@@ -16,7 +25,7 @@ The main aim is to estimate a linear equation representing the given set of data
    This is similar to **Gradient Descent**. We try to obtain the minima (L1, L2 norm etc) by calculating the gradient at each point and moving in small steps along the gradient vector. 
    Refer to [this](https://youtu.be/8PJ24SrQqy8) video for more details. 
 
-## Logistic Regression
+### Logistic Regression
 
 Refer to the following [link](https://towardsdatascience.com/logistic-regression-detailed-overview-46c4da4303bc) to see an example of logistic regression. 
 
@@ -97,7 +106,7 @@ This is how a single iteration of training a neural network is done:
 5. Perform gradient descent, as partial derivatives wrt all biases and weights is known.
 
 
-## Learning Slowdown, and the cross entropy cost function
+## Learning Slowdown and the cross entropy cost function
 
 We've been using the quadratic cost function so far. It does have a few issues, notably its derivative is very small when the value of σ(z) is close to 0 or 1. In gradient descent, the change in biases and weights is directly proportional to the derivative of the cost function, meaning it is possible for this function to learn very slowly when it is giving wrong results. We turn to the cross entropy cost function as a solution.
 
@@ -140,11 +149,38 @@ We have so far been initializing all weights and biases from a gaussian distribu
 To solve this problem, we initialize `b` as earlier but `w` is initialized with mean 0 and standard deviation of `1/sqrt(n)` where n is the number of inputs.
 
 
-# Universality of Neural Networks
+## Universality of Neural Networks
 
 This is a very important mathematical analysis (which I shall not write here for the sake of brevity) that neural networks (even simple ones with a single hidden layer) can compute any function with relative precision given enough time to train.
 
 The approximation is better when there are more neurons used in the hidden layer. Also, we get an approximated continuous function as a result of estimating a discontinuous function by this method.
+
+---
+
+
+#CNNs
+
+Stand for Convolutional Neural Networks. Are best suited for image processing, and the number of connections in between the hidden layers is decreased by a significant factor. A few basic terminologies are discussed below.
+
+## Basic Terminologies
+1. Convolution
+This step involves having a *kernel* of fixed size move across the image (with a stride that need not be 1) and produce a *feature map* which makes it easier for the network to train. Many kernels can be operated on a single image, giving many feature maps.
+
+Do note that the kernel must always be odd-sized.
+
+2. Pooling
+The size of a map is reduced by first dividing it into smaller parts, each with size m×m. Each of these smaller squares is replaced by a single pixel, usually by taking the `max` or the `average` of all the values in that cell.
+
+3. ReLU
+This introduces non-linearity in the system so as to make the network more flexible in representing a large variety of functions.
+
+4. Fully Connected Layers
+Once all the "pre-processing" of the image via convolution and pooling is done, the resultant values are passed into a fully connected layer for the neurons in that layer to train. The number of layers is variable, but the output layer must have the sam enumber of neurons as the number of possible classifications. (due to obvious reasons)   
+
+
+
+
+
 
 ## Resources used
 
