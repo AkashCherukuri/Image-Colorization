@@ -15,6 +15,9 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 
 -1. [Resources Used](#resources-used)
 
+---
+
+
 ## Linear Regression
 
 The main aim is to estimate a linear equation representing the given set of data. There are two approaches to this.   
