@@ -6,15 +6,18 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 ## Table of Contents
 
 1. [Linear and Logistic Regression](#linear-regression)
+
 2. [Deep Learning](#deep-learning)
 	- [Gradient Descent and Stochastic Gradient Descent](#gradient-descent)
 	- [Back Propagation](#back-propagation)
 	- [Cross Entropy Cost Function](#learning-slowdown-and-the-cross-entropy-cost-function)
+
 3. [Convolutional Neural Networks](#cnns)
 	- [Basic Terminologies](#basic-terminologies)
 	- [Types of Convolution](#types-of-convolution)
+	- [Famous CNNs](#famous-cnns)
 
-	
+
 -1. [Resources Used](#resources-used)
 
 ---
@@ -174,6 +177,8 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	Do note that the kernel must always be odd-sized.
 
+	Check [this](https://datascience.stackexchange.com/questions/9175/how-do-subsequent-convolution-layers-work) link to see how two successive convolutions are done.
+
 2. Pooling
 
 	The size of a map is reduced by first dividing it into smaller parts, each with size m×m. Each of these smaller squares is replaced by a single pixel, usually by taking the `max` or the `average` of all the values in that cell.
@@ -210,8 +215,25 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
 
+## Famous CNNs
+- LeNet
+
+- AlexNet
+	Implementation of AlexNet using `PyTorch` is given in `AlexNet.py` file. An accuracy of 95% was acheived after training the net for 15 epochs, although it seemed to saturate after the first epocg itself.
+
+- VGG
+	This has a very similar implementation philosophy as AlexNet, we increase the number of feature maps while decreasing the size of each feature map. A small improvement here is that convolution layers are put successively, so as to save computational time.
+
+	That is, a 7x7 kernel over `c` sized map would need 49c² wheras having two succesive 3×3 kernels would need 27c² computations.
+
+- GoogleNet (2014 Winner of ImageNet challenge)
+	Convolution with kernel size larger than (or equal to) 3 can be very expensive when the number of feature maps is huge. For this, GoogleNet has convolutions using a kernel size of 1 to reduce the feature maps, followed by the actual convolution. These 1×1 feature maps are also called as *Bottle Neck* feature maps. 
+
+	GoogleNet also utilizes Inception Modules.
+
 
 ## Resources used
 
-A Machine Learning course [here](https://www.coursera.org/learn/machine-learning)  
-Notes on Machine Learning [here](http://cs229.stanford.edu/summer2019/cs229-notes1.pdf)
+- [Neural Networks and Deep Learning by Miachel Nielson](http://neuralnetworksanddeeplearning.com/index.html)
+- A Machine Learning course [here](https://www.coursera.org/learn/machine-learning)  
+- Notes on Machine Learning [here](http://cs229.stanford.edu/summer2019/cs229-notes1.pdf)
