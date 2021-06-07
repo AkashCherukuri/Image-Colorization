@@ -226,6 +226,8 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	That is, a 7x7 kernel over `c` sized map would need 49c² wheras having two succesive 3×3 kernels would need 27c² computations.
 
+	This has been implemented in `VGGNet.py`.
+
 - GoogleNet (2014 Winner of ImageNet challenge)
 	Convolution with kernel size larger than (or equal to) 3 can be very expensive when the number of feature maps is huge. For this, GoogleNet has convolutions using a kernel size of 1 to reduce the feature maps, followed by the actual convolution. These 1×1 feature maps are also called as *Bottle Neck* feature maps. 
 
