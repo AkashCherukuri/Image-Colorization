@@ -242,6 +242,8 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	ResNet acheives this by having "skip connections" in between the blocks of convolution. That is, let an input `X` be passed into a convolution block to get an output `F(X)`. The skip connection is used to add `X` to this result, yielding `X+F(X)`. The reasoning is that although the network might fail to learn from `F(X)`; it will be able to learn from `X` itself directly.
 
+	My implementation of ResNet for the MNIST dataset has been shown in `ResNet.py`. I have been able to acheive an accuracy of 98%, but I do believe 99% is possible had I trained the net for longer. The feature maps and structure of the network has been modified a little to make it more easier to train, but the core idea remains the same.
+
 
 ## Resources used
 
