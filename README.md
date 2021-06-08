@@ -216,22 +216,31 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 	This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
 
 ## Famous CNNs
-- LeNet
+- **LeNet**
 
-- AlexNet
+- **AlexNet**
+
 	Implementation of AlexNet using `PyTorch` is given in `AlexNet.py` file. An accuracy of 95% was acheived after training the net for 15 epochs, although it seemed to saturate after the first epocg itself.
 
-- VGG
+- **VGG**
+
 	This has a very similar implementation philosophy as AlexNet, we increase the number of feature maps while decreasing the size of each feature map. A small improvement here is that convolution layers are put successively, so as to save computational time.
 
 	That is, a 7x7 kernel over `c` sized map would need 49c² wheras having two succesive 3×3 kernels would need 27c² computations.
 
 	This has been implemented in `VGGNet.py`.
 
-- GoogleNet (2014 Winner of ImageNet challenge)
+- **GoogleNet** (2014 Winner of ImageNet challenge)
+
 	Convolution with kernel size larger than (or equal to) 3 can be very expensive when the number of feature maps is huge. For this, GoogleNet has convolutions using a kernel size of 1 to reduce the feature maps, followed by the actual convolution. These 1×1 feature maps are also called as *Bottle Neck* feature maps. 
 
 	GoogleNet also utilizes Inception Modules.
+
+- **ResNet** (2015 Winner of ImageNet challenge)
+
+	Short for residual network, the net submitted for the challenge had 152 layers but the number of parameters are comparable to AlexNet (Which has just 4 layers). The problem of learning slowdown is tackled in a very novel way in this network.
+
+	ResNet acheives this by having "skip connections" in between the blocks of convolution. That is, let an input `X` be passed into a convolution block to get an output `F(X)`. The skip connection is used to add `X` to this result, yielding `X+F(X)`. The reasoning is that although the network might fail to learn from `F(X)`; it will be able to learn from `X` itself directly.
 
 
 ## Resources used
