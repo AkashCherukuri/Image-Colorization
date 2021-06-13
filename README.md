@@ -18,7 +18,9 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 	- [Famous CNNs](#famous-cnns)
 
 4. [Generative Neural Networks](#gans)
-
+	- [Inverse Transform Method](#inverse-transform-method-and-its-implications)
+	- [Generative Models](#generative-models)
+	
 -1. [Resources Used](#resources-used)
 
 ---
@@ -292,7 +294,9 @@ GAN stands for Generative Adversial Networks, and they belong to the set of Gene
 
 The mathematical analysis and intuition behind these networks is given below.
 
-## Inverse Transform Method (and its implications)
+&nbsp; 
+
+## Inverse Transform Method and its implications
 
 This method is used to simulate drawing values from a complicated probability distribution, using a uniform distribution. Let the CDF of the complicated distribution be `F`. Assume that it is invertible, and let its inverse be given by `F⁻¹`. Let a draw from the uniform distribution be `u`. It can quite easily be proven that `F⁻¹(u)` has the same distribution as `F` itself.
 
