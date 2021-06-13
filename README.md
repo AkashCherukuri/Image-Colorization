@@ -318,6 +318,8 @@ We have one neural network which aims to estimate the transform function by comp
 
 The neural net would strive to reduce MMD, meaning that it would learn the transform function upon training for sufficient time. This way of training for generation is used in Generative Matching Networks.
 
+&nbsp; 
+
 ### Adversial training (GANs)
 
 We have two neural networks here, the *generator* and the *discriminator*. The generator has the same role as the previous model, wherein it tries to estimate the transform function by generating images of a human face. The discriminator is handed images from both generator and the already available data. It is tasked with classifying the images into two groups, the ones from the generator and the ones from the true data set. The generator is hence tasked with fooling the discriminator to the best possible extent.
