@@ -185,9 +185,9 @@ This is a very important mathematical analysis (which I shall not write here for
 
 The approximation is better when there are more neurons used in the hidden layer. Also, we get an approximated continuous function as a result of estimating a discontinuous function by this method.
 
----
-
 &nbsp; 
+
+---
 
 &nbsp; 
 
@@ -228,6 +228,7 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 	The number of rows/columns of 0s added is called as *Dilation Rate*.
 
 	Example:
+	```
 
 	 					1 0 1 0 1 
 
@@ -239,6 +240,8 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	 					1 0 1 0 1
 
+	
+	```
 2. Transposed Convolution
 
 	This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
