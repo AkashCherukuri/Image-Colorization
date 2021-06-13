@@ -22,6 +22,11 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 -1. [Resources Used](#resources-used)
 
 ---
+&nbsp; 
+
+&nbsp; 
+
+&nbsp; 
 
 
 ## Linear Regression
@@ -38,11 +43,17 @@ The main aim is to estimate a linear equation representing the given set of data
 
 Refer to the following [link](https://towardsdatascience.com/logistic-regression-detailed-overview-46c4da4303bc) to see an example of logistic regression. 
 
-## Gradient Descent
+### Gradient Descent
 
 [Here](https://youtu.be/sDv4f4s2SB8) is a useful video.  
 An article about Gradient Descent [here](https://medium.com/@lachlanmiller_52885/machine-learning-week-1-cost-function-gradient-descent-and-univariate-linear-regression-8f5fe69815fd)  
 A useful post on GeeksForGeeks [here](https://www.geeksforgeeks.org/gradient-descent-algorithm-and-its-variants/)  
+
+&nbsp; 
+
+&nbsp; 
+
+&nbsp; 
 
 # Deep Learning
 
@@ -57,13 +68,15 @@ The standard sigmoid function is given as follows:
 
 That is, is is a smoothened out version of the step function. We can also see that the output changes linearly with changes in inputs (using partial derivatives). (w·x+b) is called as the "Weighted input" for that particular neuron, and is represented by `z`.
 
-
+&nbsp; 
 
 ## MLP - Multi Layer Perceptrons 
 
 These have **sigmoid neurons** as layers in them. The neurons taking input are called *input neurons* and comprise the *input layer*. Similarly, we have the output neurons and the output layer. Neurons (and layers) which are neither input nor output are called as **Hidden Layers**. We will be using a **feed-forward** neural network, meaning that the output of a layer always leads to an input of another layer in a linear fashion without loops. If layers have loops, they are called **Recurrent Neural networks** or RNNs.
 
 For example, a neural network responsible for detecting the number in a MNIST dataset can have just three layers; Input (28×28 neurons), hidden (variable `n`) and output (10 neurons). The network is trained using a training set, and the mean squared loss function is minimized by using gradient descent.
+
+&nbsp; 
 
 ### Gradient Descent
 
@@ -81,6 +94,8 @@ Let ΔX = -η∇f
 
 In our case, we would be applying gradient descent and changing the values of all the biases (`b_i`) and weights (`w_i`) to minimize the cost function. A drawback of this method is that calculating the cost function requires the summation of the mean squared error over all values of training data, which would be ranging in the order of `10^5`. This causes the training to be very slow.
 
+&nbsp; 
+
 ### Stochastic Gradient Descent
 
 Instead of taking all the `n` values in the training data set, we create a subset called the “mini set” where each element is a random subset of size `m < n`. We compute the cost function over every subset in the mini set, with the assumption that the “true” cost function and the empirically calculated cost function are nearly equal. This dramatically reduces the time required for training the network.
@@ -88,6 +103,8 @@ Instead of taking all the `n` values in the training data set, we create a subse
 When the mini set is exhausted, an **epoch** of training is said to be completed after which the process is repeated again. This is to mark the progress of training.
 
 *** Vectorizing sigmoid function ***
+
+&nbsp; 
 
 ## Back-Propagation
 
@@ -114,6 +131,7 @@ This is how a single iteration of training a neural network is done:
 4. Backpropogate the error till the input layer.
 5. Perform gradient descent, as partial derivatives wrt all biases and weights is known.
 
+&nbsp; 
 
 ## Learning Slowdown and the cross entropy cost function
 
@@ -130,6 +148,7 @@ C = (-1/n)×ΣₓΣⱼ[yln(σ(zⱼᴸ)) + (1-y)ln(1-σ(zⱼᴸ))]    where zⱼ�
 
 Do note that a sigmoid function coupled with the cross entropy cost function is quite similar in terms of learning slowdown to the softmax function coupled with the log-likelihood cost function. (the derivatives wrt `b` and `x` have the same behaviour)
 
+&nbsp; 
 
 ## Avoiding overfitting
 
@@ -151,6 +170,8 @@ Do note that a sigmoid function coupled with the cross entropy cost function is 
 3. Artificially inflate the size of training data
 	In the case of MNIST, just rotate/blur the images by a small degree to get new training data!
 
+&nbsp; 
+
 ## Initializing the weights and biases
 
 We have so far been initializing all weights and biases from a gaussian distribution of mean 0 and standard deviation 1. This isn't optimal, as the standard deviation of `z = (Σᵢwᵢxᵢ) + b` would be very large, proportional to the square of the umber of inputs the neuron has. This can cause the output of the sigmoid function to be nearly 0 or 1, causing stagnation as discussed earlier.
@@ -166,6 +187,11 @@ The approximation is better when there are more neurons used in the hidden layer
 
 ---
 
+&nbsp; 
+
+&nbsp; 
+
+&nbsp; 
 
 # CNNs
 
@@ -192,6 +218,7 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	Once all the "pre-processing" of the image via convolution and pooling is done, the resultant values are passed into a fully connected layer for the neurons in that layer to train. The number of layers is variable, but the output layer must have the sam enumber of neurons as the number of possible classifications. (due to obvious reasons)   
 
+&nbsp; 
 
 ### Types of Convolution
 1. Dilated Convolution
@@ -215,6 +242,8 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 2. Transposed Convolution
 
 	This is the reverse of convolution, where we increase the size of the map by padding it and applying the feature map. This is used to "estimate" what the original map might've been, and is used in encoder-decoder networks.
+
+&nbsp; 
 
 ## Famous CNNs
 - **LeNet**
