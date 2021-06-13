@@ -230,7 +230,7 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 	Example:
 	```
 
-	 					1 0 1 0 1 
+	 			1 0 1 0 1 
 
 	1 1 1 			0 0 0 0 0 
 
@@ -238,7 +238,7 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	1 1 1 			0 0 0 0 0 
 
-	 					1 0 1 0 1
+	 			1 0 1 0 1
 
 	
 	```
