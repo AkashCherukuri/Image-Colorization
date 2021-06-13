@@ -17,6 +17,7 @@ This is a repo for SoC2021, Image Colorization project. This repo would contain 
 	- [Types of Convolution](#types-of-convolution)
 	- [Famous CNNs](#famous-cnns)
 
+4. [Generative Neural Networks](#gans)
 
 -1. [Resources Used](#resources-used)
 
@@ -244,6 +245,14 @@ Stand for Convolutional Neural Networks. Are best suited for image processing, a
 
 	My implementation of ResNet for the MNIST dataset has been shown in `ResNet.py`. I have been able to acheive an accuracy of 98%, but I do believe 99% is possible had I trained the net for longer. The feature maps and structure of the network has been modified a little to make it more easier to train, but the core idea remains the same.
 
+` `
+` `
+` `
+``
+``
+``
+
+# GANs
 
 ## Resources used
 
